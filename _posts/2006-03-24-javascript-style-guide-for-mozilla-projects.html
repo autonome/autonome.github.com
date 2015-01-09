@@ -1,0 +1,36 @@
+---
+layout: post
+title: Javascript Style Guide For Mozilla Projects
+date: 2006-03-24 11:49:28.000000000 -08:00
+categories:
+- mozilla
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _oembed_c16655d8448a6859d00e0bf84f58eeb0: '{{unknown}}'
+  _oembed_20e8f91f3ffc8b9469fc35e31ec8520b: '{{unknown}}'
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>There doesn't seem to be one (or I couldn't find it!). Here are a few guidelines I've picked up from recent patch review comments. Please comment if you have additions and corrections, and maybe we can coalesce this into a page on MDC, with examples and the reasoning behind the guidelines.</p>
+<ul>
+<li>Two space indentation is most common in browser/toolkit code</li>
+<li>Lines need to wrap at 80 characters</li>
+<li>Braces are usually same-line, and only used when surrounding a multiline block</li>
+<li>Use an underscore ("_") as the private prefix for properties and methods</li>
+<li>When wrapping a long expression, the operator goes at the end of the line</li>
+<li>Use spaces instead of tabs</li>
+<li>Adhere to the style of the code you're fixing (or fix it, if it's incorrect!)</li>
+<li>Use inline comments liberally</li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=317107">bz317107</a>, comments <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=317107#c43">43</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=317107#c46">46</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328159">bz328159</a>, comment <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=328159#c8">8</a> (some of the other comments have good critique as well)</li>
+</ul>

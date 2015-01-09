@@ -1,0 +1,11 @@
+<p>I wrote an add-on for Firefox 4 that tracks how long various parts of the browser's user-interface take to load. It does not require a restart of the browser.</p>
+<p><a href="http://people.mozilla.com/~dietrich/aboutresponse.xpi">Click here to install.</a></p>
+<ul>
+<li>It measures the duration between 'popupshowing' and 'popupshown' events. This covers menus, menu-like things, and those floating panels you're starting to see everywhere.</li>
+<li>You can see your results at <a href="response">about:response</a>. There won't be anything there if you just installed the add-on. Browse around for a few days and then check it out.</li>
+<li>It doesn't track popups without an id yet. It could also be nicer by showing the containing menu name if available.</li>
+<li>I'd like to add window load times. What else in the front-end could we be measuring? I was thinking about &lt;command&gt; execution, but there's not a way to do that without modifying the core, afaict.</li>
+<li>Perhaps we could add a button for users to submit their anonymized data somewhere.</li>
+</ul>
+<p>Try it out, let me know if you have any problems. The <a href="https://github.com/autonome/about-response">source code</a> is available on Github.</p>
+<p><a href="http://autonome.files.wordpress.com/2011/02/about-response-screenshot.png"><img class="aligncenter size-full wp-image-667" title="about-response-screenshot" src="assets/about-response-screenshot.png" alt="about-response-screenshot" width="480" height="295" /></a></p>

@@ -1,0 +1,62 @@
+---
+layout: post
+title: Weekly Firefox Startup Performance Roundup
+date: 2009-08-14 19:04:32.000000000 -07:00
+categories:
+- firefox
+- mozilla
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '267418'
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>Here's a summary of all the startup-related work going on. Other people on the team are also blogging updates on their individual projects:</p>
+<ul>
+<li>Ryan Flint: <a href="http://screwedbydesign.com/blog/2009/08/this-week-in-perf-aug14.php">This Week in Perf – Aug. 14th Edition</a></li>
+<li>David Dahl: <a href="http://daviddahl.blogspot.com/2009/08/looking-for-dead-code.html">Looking for Dead Code</a></li>
+<li>Drew Willcoxon: <a href="http://blog.mozilla.com/adw/2009/08/14/startup/">Startup</a></li>
+</ul>
+<p>As usual, for the details, check out the <a title="Startup Improvements wiki" href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">Startup Project wiki page</a>.</p>
+<h3>Progress</h3>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=419893">PGO for SQLite, MozStorage and Places</a>: Landed on the Places branch. The test failures seen when PGO first landed are not there (yay), but the Talos boxes don't show any clear wins (boo).</li>
+<li>Dead Code Hunting: Even though he's supposed to be on vacation, David has got the full browser.xul environment pulled in for analysis. More info in his post (linked above). Still a lot of false-positives in the detection code.</li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=480735">Startup timeline</a>: Vlad's been working with the NSPR owner, and the latest patch has review, so almost there.</li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=507038">XPCOM component combining</a>: No progress from me, but Florian Quèze <span><em></em></span>attached a shell script to knit the components together!</li>
+<li>XPT Linking on Mac: Drew has confirmed big wins from this, split it off into it's <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510309">own bug</a>. More detailed notes from him on his <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements/adw_notes">wiki page.</a></li>
+<li>JARification
+<ul>
+<li>Taras' <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=504864">core IO improvements to how JAR file contents are read</a> have landed, as well as the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=468011">combining of all chrome into browser and toolkit JARs</a> (this morning!).</li>
+<li>Ryan is looking at putting the components directory into a JAR so that it reaps the same benefits as the chrome directories.</li>
+</ul>
+</li>
+<li>Testing/Measurement
+<ul>
+<li>Met with Alice to talk about various test scenarios, and the deployment process</li>
+<li>Started a guide for <a title="Creating a new Talos test" href="https://wiki.mozilla.org/Testing/Talos/NewTests">taking a Talos test from idea to production</a></li>
+<li>Initial steps on automatedly testing cold-startup, figuring out platform-specific calls, and what Talos changes are needed</li>
+<li>Discussing approaches to micro-benchmarking the browser UI</li>
+</ul>
+</li>
+</ul>
+<h3>Next Steps</h3>
+<ul>
+<li>Enable PGO on mozilla-central, get nightly tester feedback</li>
+<li>Once the startup timeline lands, get an actual timeline to analyze</li>
+<li>Reduce false-positives on the dead-code report, document installation and usage, develop plan for continuous integration</li>
+<li>Work with Ted to get a patch for JS component combining into the packaging process</li>
+<li>Figure out if there's a win in jar'ing /components or if we just need to fix fastload to not touch the files as much</li>
+<li>Get XPT linking landed</li>
+<li>File bugs and get the Talos changes in Alice's queue for cold-startup testing</li>
+<li>Finish the Talos test development guide</li>
+<li>Talk with Ryan Doherty about the reporting side of microbenchmarking</li>
+</ul>
+<p>[UPDATE: added Drew's blog post]</p>

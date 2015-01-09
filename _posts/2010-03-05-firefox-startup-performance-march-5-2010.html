@@ -1,0 +1,32 @@
+---
+layout: post
+title: Firefox Startup Performance - March 5, 2010
+date: 2010-03-05 18:07:42.000000000 -08:00
+categories:
+- firefox
+- mozilla
+tags:
+- firefox
+- mozilla
+- Performance
+- startup
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '267418'
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>I spent the week on-site at Mozilla HQ in Mountain View, which was great.</p>
+<ul>
+<li>Talked with Bob Moss and others about expanding our startup tests to cover a <a href="https://wiki.mozilla.org/Firefox/Projects/StartupPerformance/TestMatrix">variety of startup scenarios</a>.</li>
+<li>Spent some time tracing file IO with the top 10 extensions on AMO installed, comparing it to an empty profile (<a href="http://people.mozilla.com/~dietrich/open.empty.txt">empty</a>, <a href="http://people.mozilla.com/~dietrich/open.extensions.txt">with extensions</a>) for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=533038">a bug Taras filed</a> about extension-caused file IO.</li>
+<li>I also traced shell calls in the startup path, and found <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=550310">some weirdness</a>, and yeah there are a bunch more calls with the top 10 extensions installed (<a href="http://people.mozilla.com/~dietrich/exec.txt">empty</a>, <a href="http://people.mozilla.com/~dietrich/exec.extensions.txt">with extensions</a>). Things like this should be "advertised" on extensions' pages on AMO. I'm pretty sure there's already some movement towards Talos testing extensions and posting results on AMO. I'll file a bug for getting things like this watched as well.</li>
+<li>Taras has been making progress using <a href="http://valgrind.org/">Valgrind</a> to get the function and data ordering sequence for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=531406">improving code locality in our binaries</a>.</li>
+<li>Ryan patched and landed a change to <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=549788">increase the buffer size used when reading in JSON files</a> (something the search service does during startup).</li>
+</ul>

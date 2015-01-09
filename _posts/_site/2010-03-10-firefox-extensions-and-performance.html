@@ -1,0 +1,25 @@
+<p>Extensibility is a double-edged sword. It's a keystone feature in Firefox - differentiating even now that just about every other browser has some vector for augmentation. However, along with the freedom and power of Firefox extensions comes the ability to slow the browser down. And worse, users and developers have little or no visibility into the causes of poor extension performance.</p>
+<p>Not all extensions slow Firefox down. But they can. To prevent that, we need to do three things:</p>
+<ol>
+<li>Make it *easy* for extension developers to keep their extensions fast.</li>
+<li>Allow users to see the performance effect of their extensions.</li>
+<li>Mitigate the effects of badly-behaving extensions in Firefox itself.</li>
+</ol>
+<h3>For Extension Developers</h3>
+<p>First, we need to loudly and clearly educate extension developers, and provide them tools. Some ideas:</p>
+<ul>
+<li>Write an extension performance "best practices" guide on MDC.</li>
+<li>Build warnings into Firefox, that highlight code that might perform poorly (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=550242">bug 550242</a>).</li>
+<li>Provide a <a href="https://wiki.mozilla.org/Build:TryServer">try-server</a> that allows extensions to be uploaded and installed into the test profile.</li>
+<li>Perform automated performance testing of extensions upload to AMO (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=458990">bug 458990</a>, maybe?)</li>
+<li>Ensure that Jetpack generates extensions that are models for good behavior.</li>
+</ul>
+<h3>For Users</h3>
+<p>Users should be able to make informed choices about the extensions they install, and be able to monitor the effect of extensions on their browsing sessions. We could:</p>
+<ul>
+<li>Provide performance information for extensions on their pages on AMO.</li>
+<li>Build a performance dashboard similar to <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=515354">about:memory</a>, but tracking startup time, page-load time, and browser UI behavior such as menu responsiveness. Given a visualization of these things over time, users can see the effects of installing different extensions.</li>
+</ul>
+<h3>In the Core</h3>
+<p>There are also things we can do to mitigate poor performance in core Firefox code. This is being discussed in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=533038">bug 533038</a>.</p>
+<p>We're already working on some of the ideas listed above. Ping me in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a> if you want to help out. If you have ideas for other ways to improve extension performance, or to communicate back to users and developers, let me know in the comments.</p>

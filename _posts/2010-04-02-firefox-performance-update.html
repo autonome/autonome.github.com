@@ -1,0 +1,41 @@
+---
+layout: post
+title: Firefox Performance Update
+date: 2010-04-02 15:38:34.000000000 -07:00
+categories:
+- firefox
+- mozilla
+tags:
+- firefox
+- mozilla
+- Performance
+- startup
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '267418'
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>As I mentioned in <a href="http://autonome.wordpress.com/2010/03/19/firefox-performance-update-startup-and-otherwise-march-19-2010/">my previous update</a>, the scope of these updates has expanded beyond start-up time. That said, I can't keep track of everything! So if you have an update, <a href="mailto:dietrich@mozilla.com">email it to me</a> if you want it in the post, or just add it in the comments.</p>
+<ul>
+<li>First, I just have to say that Marco's fix for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=542943">bug 542943</a> has changed the way I think about browser restarts, removing the fear entirely. It turns out that, for me anyway, the majority of the slowness involved in restarting was waiting for the process to exit. After Marco's landing, it's nearly instantaneous.</li>
+<li>While I was away, Taras blogged nearly daily about his findings while working on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=549749">Linux code locality</a>. He first posted <a href="http://blog.mozilla.com/tglek/2010/03/23/when-in-trouble-draw-a-picture/">a graph of I/O from library loading</a>, then a long post about <a href="http://blog.mozilla.com/tglek/2010/03/24/linux-why-loading-binaries-from-disk-sucks/">why library loading sucks on Linux</a>, followed by some findings regarding <a href="http://blog.mozilla.com/tglek/2010/03/25/madvise-prelink-update/">madvise and prelink</a>, finally posting about <a href="http://blog.mozilla.com/tglek/2010/03/29/linux-startup-inefficiency/">linker inefficiencies and SuSE's workaround</a>.</li>
+<li>Mike Wu and others are moving forward on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=552121">the "omnijar" project</a>, which moves most of the core application files into a single JAR file. Taras described it as "extreme filesystem makeover", and found ~10% start-up improvement with this approach on the desktop.</li>
+<li>Clint Talbert and Heather Arthur are beginning work on a project that measures add-on performance, that will hook into AMO to show developers how their add-ons perform.</li>
+<li>Drew Willcoxon got r+ on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=536893">bug 536893</a> to allow asynchronous opening of Places query results. Once we start using the feature, expect bookmark and history UI to get snappier!</li>
+<li>Taras got review on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug 516085</a>, which consolidates access to core services that currently accessed hundreds of thousands of times during a browsing session.</li>
+<li>A bunch of people have added tips to the <a href="https://wiki.mozilla.org/Performance/Addons/BestPractices">add-on performance "best practices" document</a>. I'll be cleaning it up and moving it to <a href="https://developer.mozilla.org">MDC</a> soon.</li>
+<li>While the tinderbox pushlog is fantastic for viewing per-checkin results, and a broader view of tree activity, it doesn't provide any facility for comparing the results of performance tests between landings. So I spent some time this week writing an addition that allows you to select any two pushes, and view a comparison table showing the difference in performance across all tests on all operating systems for those revisions. I'll clean it up, and try to get it deployed, but regardless will make it available as a Jetpack or Greasemonkey script sometime next week.</li>
+</ul>
+<p>For more info:</p>
+<ul>
+<li>Startup performance activity is tracked <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">here</a>.</li>
+<li>Add-on performance efforts are being tracked on <a href="https://wiki.mozilla.org/Performance/Addons">this page</a>.</li>
+<li>Weekly performance results for all measurements are available on the <a href="http://graphs.mozilla.org/dashboard/snapshot/">snapshot</a>, and trends available on the <a href="http://graphs.mozilla.org/dashboard/">dashboard</a>.</li>
+</ul>

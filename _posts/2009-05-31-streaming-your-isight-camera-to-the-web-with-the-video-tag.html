@@ -1,0 +1,64 @@
+---
+layout: post
+title: Streaming Your iSight Camera to the Web with the Video Tag
+date: 2009-05-31 22:51:39.000000000 -07:00
+categories:
+- firefox
+- mozilla
+tags:
+- firefox
+- icecast
+- isight
+- Mac
+- mozilla
+- ogg
+- openvideo
+- theora
+- vlc
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '267418'
+  _oembed_bbd54f439c70ddaa9f1dddadcf9be0be: '{{unknown}}'
+  _oembed_9eed1b88b64697a121168d71fc559b31: '{{unknown}}'
+  _oembed_ba358ad9cf05aa8dc7afd11cc2811b65: '{{unknown}}'
+  _oembed_9ca8e6622739c29133386f50569d5cec: '{{unknown}}'
+  twitter_cards_summary_img_size: a:6:{i:0;i:525;i:1;i:383;i:2;i:3;i:3;s:24:"width="525"
+    height="383"";s:4:"bits";i:8;s:4:"mime";s:9:"image/png";}
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>I wanted to do a demonstration of live streaming using the <a href="https://developer.mozilla.org/en/html/element/video">&lt;video/&gt; tag</a> for <a href="http://opensourcebridge.org/sessions/251">my talk at the upcoming Open Source Bridge conference</a>; maybe a stream a surprise guest in, do some audience interaction, something fun. I figured the easiest way to test the streaming myself would be to use the webcam in my MacBook Pro's built-in iSight camera.</p>
+<p>I pinged <a href="http://weblogs.mozillazine.org/asa/">Asa</a> to get details about how he streams <a href="http://air.mozilla.com/">Air Mozilla</a>, which brought Icecast into the picture. I found some old posts about using VLC on Linux to capture the external iSight, so tried it... but no dice, the capture module barfed when trying to talk to the camera. VLC ships with a capture module for the iSight, but hasn't been updated to work with the internal iSight. Bah. VLC also supported transcoding to Ogg Theora, as well as streaming to Icecast servers, so it really seemed like it'd provide just about everything, if it only supported the camera.</p>
+<p>I looked up the error I got from VLC, posted on the VLC forums, no answers. So I emailed the author of VLC's Quicktime module, <a href="http://www.ohloh.net/accounts/pdherbemont">Pierre d'Herbemont</a>, at the email he left in the source file. After a couple of emails, and less than 24 hours later, <a href="http://git.videolan.org/?p=vlc.git;a=commitdiff;h=d032b62bfaada60a4f3e0b3b2a5a71f65bf8eea9">he'd checked in a fix</a>. Open source FTW. Thanks Pierre.</p>
+<p>The steps to get it working are enumerated below. At some point, the VLC fix will ship, but until then you'll need to use nightly builds.</p>
+<p>Install and configure the Icecast2 server:</p>
+<ol>
+<li>Install <a href="http://www.macports.org/">MacPorts</a></li>
+<li>In the Terminal: sudo port install icecast2. This installs everything into various dirs in /opt/local.</li>
+<li>Edit /opt/local/etc/icecast.xml, set user/group it runs as (for logfiles, i set mine to _www, same as Apache), and change the default passwords in the authentication section.</li>
+<li>Set permissions on /opt/local/var/log/icecast to be writable by the user you configured Icecast to run as.</li>
+<li>In the Terminal, start the server: sudo icecast -c /opt/local/etc/icecast.xml -b</li>
+<li>Test your install by checking the server's status at <a href="http://localhost:8000/status.xsl">http://localhost:8000/status.xsl</a></li>
+<li>Watch the log in the Terminal: tail -f opt/local/var/log/icecast/error.log (Useful for confirming VLC access, as well as catching authentication problems)</li>
+</ol>
+<p>Start the stream:</p>
+<ol>
+<li>Download and install the most recent <a href="http://nightlies.videolan.org/build/macosx-intel/?C=M%3BO=D">VLC nightly build</a></li>
+<li>Open the terminal, and execute the command below</li>
+<li>Open <a href="http://localhost:8000/stream/isight">http://localhost:8000/stream/isight</a> with Firefox 3.5b4 (or newer)</li>
+</ol>
+<p>VLC Command (all one line):</p>
+<p>/Applications/VLC.app/Contents/MacOS/VLC qtcapture:// --sout="#transcode{vcodec=theora,vb=256,venc=theora,acodec=vorbis,ab=64,aenc=vorbis}: standard{access=shout,mux=ogg,dst=source:yourpassword@localhost:8000/stream/isight}"</p>
+<p><img class="aligncenter size-medium wp-image-353" title="screenshot" src="assets/picture-211.png?w=300" alt="screenshot" width="300" height="218" /></p>
+<p>It's still not quite ready for practical use:</p>
+<ul>
+<li>There's still some size distortion, maybe I have the aspect ratio wrong or something</li>
+<li>Still working on sound</li>
+<li>Lag is pretty bad</li>
+</ul>

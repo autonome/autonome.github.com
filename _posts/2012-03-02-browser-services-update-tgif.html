@@ -1,0 +1,82 @@
+---
+layout: post
+title: Browser Services Update (TGIF)
+date: 2012-03-02 17:33:43.000000000 -08:00
+categories:
+- firefox
+- mozilla
+tags:
+- firefox
+- mozilla
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '267418'
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>My team is "a riddle, wrapped in a mystery, inside an enigma". Ok, maybe not *that* mysterious, but we're definitely involved in a variety of projects. Here's a roll-up of a week in browser-land.</p>
+<p><strong>Performance</strong></p>
+<ul>
+<li>Tim landed a patch that <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=683953">adds reporting of leaked windows and documents to our unit test runs</a>. Dao's work has shown that these often reflect leaks in the platform not just the test, so it's very valuable to know about them. The next step is to track the leak numbers between runs and report regressions by making the tree color change somehow. Tim also <a href="http://timtaubert.de/2012/02/fighting-docshell-and-domwindow-leaks/">blogged about this</a>.</li>
+<li>Neil has a patch up for adding telemetry that measures <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=710431">how long it takes to open a browser window</a>.</li>
+<li>Mano continued his work on the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=710259">Safari migrator</a>, which includes various cross-migrator improvements. This work is part of a broader rewrite of the migrators to use Places async APIs, for improved responsiveness.</li>
+<li>Marco landed <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613588">a major rewrite of Livemarks</a>, converting them to load content on-demand and asynchronously, reducing synchronous IO on the main thread.</li>
+<li>Paolo continued his work on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=713642">rewriting favicon API consumers</a> to use the new asynchronous API.</li>
+<li>Drew has completed the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=699859">conversion of the content preferences service to use async mozStorage statements</a>, and is in the process of updating the various JS and C++ consumers to use the new API.</li>
+<li>I talked a bit with Mark Cote about <a href="https://wiki.mozilla.org/Auto-tools/Projects/peptest">Peptest</a>, a new framework for testing browser responsiveness. Peptest is currently available on the tryserver, but results are highly variable, so there's more work to do before it can be turned on for all check-ins. Once Peptest is ready to use, we'll evangelize the crap out of it.</li>
+<li>I continued working on breaking apart the session restore service into more manageable pieces (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=726235">XPath generator</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=708488">tab state</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=697903">form data</a>).</li>
+<li>I put up a WIP patch for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=532150">reading the session file asynchronously</a> during startup.</li>
+<li>I started working on measuring how much time is taken up by <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=715612">creating about:blank browsers when restoring sessions on demand</a>.</li>
+</ul>
+<p><strong>New Tab Page</strong></p>
+<ul>
+<li>Tim worked on Stephen Horlander's <a href="http://people.mozilla.com/~shorlander/files/new-tab-prototype-i03/new-tab-prototype-i03.html">redesign of the new-tab page</a>, and also fixed some bugs.</li>
+</ul>
+<p><strong>New Download Manager</strong></p>
+<ul>
+<li>Paolo <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=726444">consolidated existing patches</a> into a single one for final pass and check-in. Marco has been reviewing.</li>
+<li>Paolo and Marco are getting together in <a href="http://maps.google.com/maps?oe=utf-8&amp;rls=org.mozilla:en-US:unofficial&amp;client=firefox-nightly&amp;q=novara+italy&amp;um=1&amp;ie=UTF-8&amp;hq=&amp;hnear=0x47865a1ed73beaff:0x405e67d473ca090,Novara,+Italy&amp;gl=us&amp;ei=K19RT9rkGKaoiQLF_Py0Bg&amp;sa=X&amp;oi=geocode_result&amp;ct=image&amp;resnum=2&amp;ved=0CEgQ8gEwAQ">Novara</a> on Saturday to sprint on fixing theme bugs and other cleanup required for landing.</li>
+</ul>
+<p><strong>Add-on SDK Integration</strong></p>
+<ul>
+<li>Met with Irakli to create plan for landing the core SDK modules in Firefox so that the whole SDK would no longer need to be bundled with every add-on.</li>
+<li>Created <a href="https://wiki.mozilla.org/Add-on_SDK_in_Firefox">a feature page</a> for tracking the project.</li>
+<li>I talked with Brian Warner about syncing Git repos with HG repos.</li>
+</ul>
+<p><strong>Web Apps Integration</strong></p>
+<ul>
+<li>I updated <a href="https://wiki.mozilla.org/Web_Apps_integration">the feature page</a> with latest from UX, Apps and PM.</li>
+<li>Felipe Gomes is driving the Firefox side of the integration work, with Tim helping out on UI. They're working together with Fabrice, Myk, Dan and Tim A.</li>
+</ul>
+<p><strong>Identity Integration</strong></p>
+<ul>
+<li>David has the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=440046">window.crypto.getRandomValues patch</a> up for final review and superreview.</li>
+<li>David put up an initial patch for the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=665057">navigator.id API for Web content</a>.</li>
+<li>David gets to play with NSS+DOM+XPCOM to get <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=649154">DOMCrypt's internal API working</a>. Lucky guy.</li>
+</ul>
+<p><strong>Share Integration</strong></p>
+<ul>
+<li>David is working with Shane Caraveo to get the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=727126">new Share add-on reviewed and landed</a>.</li>
+</ul>
+<p><strong>Evangelism/Engagement</strong></p>
+<ul>
+<li>Tim and Marco kicked off sponsorship process for <a href="http://2012.jsday.it/">Italy's jsDay conference</a>. They'll be putting up a booth there, along with Paolo Amadini, representing Mozilla. Thanks to Stormy and Shez for the support from Developer Engagement.</li>
+</ul>
+<p>Of course, we all worked on various other things as well, from code review to bug triage to random maintenance fixes. Activity logs and whatnot are listed below.</p>
+<ul>
+<li>David Dahl: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=ddahl@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/ddahl">status updates</a>, <a href="http://monocleglobe.wordpress.com/">blog</a>, <a href="https://twitter.com/#!/deezthugs">Twitter</a></li>
+<li>Drew Willcoxon: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=adw@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/drew">status updates</a></li>
+<li>Felipe Gomes: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=felipc@gmail.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/felipe">status updates</a>, <a href="http://felipe.wordpress.com/">blog</a>, <a href="https://twitter.com/#!/felipc">Twitter</a></li>
+<li>Asaf Romano: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=mano@mozilla.com">Bugzilla activity log</a></li>
+<li>Marco Bonardo: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=mak77@bonardo.net">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/mak">status updates</a>, <a href="http://blog.bonardo.net/">blog</a>, <a href="https://twitter.com/#!/mak77">Twitter</a></li>
+<li>Neil Deakin: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=enndeakin@gmail.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/Enn">status updates</a>, <a href="https://enndeakin.wordpress.com/">blog</a></li>
+<li>Paolo Amadini: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=paolo.mozmail@amadzone.org">Bugzilla activity log</a></li>
+<li>Tim Taubert: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=ttaubert@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/ttaubert">status updates</a>, <a href="http://timtaubert.de">blog</a>, <a href="https://twitter.com/#!/ttaubert">Twitter</a></li>
+<li>Dietrich Ayala: <a href="https://bugzilla.mozilla.org/page.cgi?id=user_activity.html&amp;action=run&amp;who=dietrich@mozilla.com">Bugzilla activity log</a>, <a href="http://benjamin.smedbergs.us/weekly-updates.fcgi/user/dietrich">status updates</a>, <a href="http://autonome.wordpress.com">blog</a>, <a href="https://twitter.com/#!/dietrich">Twitter</a></li>
+</ul>

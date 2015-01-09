@@ -1,0 +1,71 @@
+---
+layout: post
+title: 'Extensibly Awesome: A Jetpack API for the Firefox Location Bar'
+date: 2011-06-08 13:25:07.000000000 -07:00
+categories:
+- firefox
+- mozilla
+tags:
+- firefox
+- jetpack
+- mozilla
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '267418'
+  _oembed_9bb29cf9f6158f1251e366a5aa8d321f: '{{unknown}}'
+  _oembed_85eb41b75eff6b784ed6a49bc6984a4e: '{{unknown}}'
+  _oembed_fb7869df7973bdda0ba9e216816fe255: '{{unknown}}'
+  _oembed_aeb029dbcfd7190559cd6db6b6b6b787: '{{unknown}}'
+  _oembed_92c9e25f446d5a50cf42b2ebcd32e290: '{{unknown}}'
+  _oembed_76d9178f316673c80fd0cab43195055a: '{{unknown}}'
+  _oembed_d4f2fd5cbe5bb315db7f7045c9896cc8: '{{unknown}}'
+  _oembed_a2e5ffa39f748ee90d617d53f5937ce7: '{{unknown}}'
+  _oembed_4259318739065d5b8c083e57269724a9: '{{unknown}}'
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>I tweaked some of <a href="http://mozillalabs.com/prospector/2011/06/01/exploring-social-search-with-twitter-address-bar-search/">Mardak's code for the Twitter Add-on</a>, and created a Jetpack module that makes it terribly simple to write add-ons that extend the awesomebar with your own suggestions. As an example, here's an add-on that uses the Google Translate API to translate text into a specified language directly in the location bar. If you type in the keyword 'translate', followed by a language code and some text, it will show the translation in the awesomebar results:</p>
+<p><a href="http://autonome.files.wordpress.com/2011/06/screen-shot-2011-06-09-at-3-36-53-am.png"><img class="aligncenter size-full wp-image-735" title="Screenshot" src="assets/screen-shot-2011-06-09-at-3-36-53-am.png" alt="Screenshot" width="480" height="127" /></a></p>
+<p>The code:</p>
+<pre>require('awesomebar').add({
+  keyword: 'translate',
+  onSearch: function(query, suggest) {
+    let lang = query.substring(0, query.indexOf(' '));
+    let text = query.substring(query.indexOf(' '));
+    if (lang.length == 2 &amp;&amp; text.length &gt; 2) {
+      translate(lang, text, function(translatedText) {
+        suggest({
+          title: 'Translated text in ' + lang + ': ' + translatedText,
+          url: 'http://translate.google.com/?tl=' + lang +
+               '&amp;q=' + encodeURIComponent(text),
+        }, true);
+      });
+    }
+  }
+});
+
+function translate(lang, text, callback) {
+  require('request').Request({
+    url: 'http://ajax.googleapis.com/ajax/services/language/translate',
+    content: {
+      v: '1.0',
+      q: text,
+      langpair: '|' + lang
+    },
+    headers: {
+      Referer: require('tabs').activeTab.location
+    },
+    onComplete: function() {
+      callback(this.response.json.responseData.translatedText);
+    }
+  }).get();
+}</pre>
+<p>The example needs niceties such as being able to write full language names, but you get the gist.</p>
+<p>Here's the <a href="https://github.com/autonome/Jetpack-Modules/blob/master/awesomebar.js">awesomebar.js module</a>.</p>
+<p>There's a bit of documentation in there. The code could use some cleanup, and could probably be much smaller if converted to use the internal Jetpack APIs for things like window-watching, etc.</p>

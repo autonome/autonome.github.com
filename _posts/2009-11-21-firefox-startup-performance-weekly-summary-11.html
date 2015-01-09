@@ -1,0 +1,51 @@
+---
+layout: post
+title: Firefox Startup Performance Weekly Summary
+date: 2009-11-21 00:07:02.000000000 -08:00
+categories:
+- firefox
+- mozilla
+tags:
+- firefox
+- mozilla
+- Performance
+- startup
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '267418'
+author:
+  login: autonome
+  email: autonome@gmail.com
+  display_name: Dietrich Ayala
+  first_name: ''
+  last_name: ''
+---
+<p>Current numbers are available on the <a href="http://graphs.mozilla.org/dashboard/snapshot/">Performance  Snapshot</a> page.</p>
+<p>Summary, relative to Firefox 3.5:</p>
+<ul>
+<li>Warm startup: For Mac, 36% better on 3.6 and 35% better on 3.7. For  Windows, 5% and 5%. Flat on Linux. Also, Warm startup for Mac on 3.6 is a whopping 13% better than last week, due to the landing of <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=517804">bug 517804</a>.</li>
+<li>Cold startup:  For Mac, 20% better on both 3.6 and 3.7. For  Windows, not measuring yet. For Linux, we're seeing a regression of ~9% across branch and trunk in the snapshot but not on the graphs, so I need to figure out where the discrepancy is.</li>
+</ul>
+<p>This week's activity:</p>
+<ul>
+<li>Dirty-cold-Ts went live this week, thanks to Alice and Lukas. </li>
+<li>Joel is making progress on making a super-static Firefox in <a title="https://bugzilla.mozilla.org/show_bug.cgi?id=525013" rel="nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=525013">bug 525013</a>.</li>
+<li> Ben is making progress on the fastload replacement in <a title="https://bugzilla.mozilla.org/show_bug.cgi?id=520309" rel="nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=520309">bug 520309</a>.</li>
+<li>No updates on Windows cold-startup testing for  Talos on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=522807">bug  522807</a>. I need to test on Vista, and turn off Pre/Superfetch.</li>
+<li>Taras has patches up for service caching (<a title="https://bugzilla.mozilla.org/show_bug.cgi?id=516085" rel="nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=516085">bug 516085</a>) and super-fast-path-ing of Components.* (<a title="https://bugzilla.mozilla.org/show_bug.cgi?id=512584" rel="nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=512584">bug 512584</a>), however the latter he's hit a wall, passing on to Blake or someone else who knows that code.</li>
+<li>Ted landed rebasing on Windows in <a title="https://bugzilla.mozilla.org/show_bug.cgi?id=484799" rel="nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=484799">bug 484799</a>.</li>
+<li>Jonathan Kew has a new patch in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=519445">bug        519445</a> for further reductions in Mac startup       time spent in  font system initialization, just about there...</li>
+<li>Ryan Flint put a patch to minify JS on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=524858">bug 524858</a>, not working yet, but significantly reduced the size of shipped JavaScript files.</li>
+</ul>
+<p>Projects in a holding pattern:</p>
+<ul>
+<li>JARification: David abandoned <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=509755">moving JS          modules into a JAR file</a>, since those files are fastloaded.         However, since we want things like post-extension-install  restarts  to   be     fast, and those cause fastload cache invalidation,  we might   want  to   do   things like this anyways. I filed a bug for  the same   treatment  for     components. These are lower priority,  since they're   not the  normal     startup case. Follow along with all  JAR-ification   via<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513027"> the         tracker  bug</a>.</li>
+<li>Startup Timeline: No updates, still not landed. Add [ft] in the        whiteboard of your bug w/ the function names you want timed and David        will generate it and update the bug.</li>
+<li>Static Analysis: No progress on <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=506128">bug        506128</a>.  David needs to file a bug with the final log of        named-yet-uncalled  functions.</li>
+<li>Dirty Profile Testing: No progress. Need to list scenarios, file        bugs  for each, generate Talos config patches and profile data, and    then     move  it into Rel-Eng territory. Also, need to get a separate       Tinderbox  tree,  since it’s going to cause a bazillion new  columns.</li>
+<li><a href="http://wagerlabs.com/">Joel        Reymont</a> noted in<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513076"> bug        513076</a> that there are serious drawbacks to getting our libraries  in       the dyld  shared cache on Mac, so has deprioritized that work.</li>
+<li>No updates on Zack's CSS parser changes in <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=513149">bug          513149</a>.</li>
+</ul>
+<p>As usual, more details and links are  available on <a href="https://wiki.mozilla.org/Firefox/Projects/Startup_Time_Improvements">the       project wiki</a>, and we're available to answer questions in <a href="irc://irc.mozilla.org/#startup">#startup on irc.mozilla.org</a>.</p>
