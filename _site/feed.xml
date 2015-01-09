@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dietrich Ayala</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <description>Working on Firefox OS so the next two billion people to come online have freedom and choice.
 </description>
     <link>http://autonome.github.io/</link>
     <atom:link href="http://autonome.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 09 Jan 2015 13:44:59 -0800</pubDate>
-    <lastBuildDate>Fri, 09 Jan 2015 13:44:59 -0800</lastBuildDate>
+    <pubDate>Fri, 09 Jan 2015 14:10:00 -0800</pubDate>
+    <lastBuildDate>Fri, 09 Jan 2015 14:10:00 -0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -26,8 +26,8 @@
 &lt;p&gt;The source for the core JS and CSS is at &lt;a href=&quot;https://github.com/autonome/quilt&quot; target=&quot;_blank&quot;&gt;https://github.com/autonome/quilt&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 Dec 2014 16:42:52 -0800</pubDate>
-        <link>http://autonome.github.io/mozilla/2014/12/18/remixable-quilts-for-the-web.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/mozilla/2014/12/18/remixable-quilts-for-the-web.html</guid>
+        <link>http://autonome.github.io/12-18-2014/remixable-quilts-for-the-web.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/12-18-2014/remixable-quilts-for-the-web.html</guid>
         
         <category>mozilla</category>
         
@@ -132,8 +132,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 26 Nov 2014 17:10:21 -0800</pubDate>
-        <link>http://autonome.github.io/2014/11/26/mozlandia-a-portland-mini-guide-for-mozillians.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/2014/11/26/mozlandia-a-portland-mini-guide-for-mozillians.html</guid>
+        <link>http://autonome.github.io/11-26-2014/mozlandia-a-portland-mini-guide-for-mozillians.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/11-26-2014/mozlandia-a-portland-mini-guide-for-mozillians.html</guid>
         
         <category>mozilla</category>
         
@@ -164,8 +164,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;p&gt;Remember to make VERY sure that none of the messages are valid before executing this bookmarklet... not only because valid messages will be discarded and their senders will be banned, but also because the UI for removing addresses from the block-list in Mailman is even worse than the one for moderation.&lt;/p&gt;
 </description>
         <pubDate>Sun, 19 Oct 2014 12:42:57 -0700</pubDate>
-        <link>http://autonome.github.io/2014/10/19/bookmarklet-for-bulk-spam-processing-with-mailman.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/2014/10/19/bookmarklet-for-bulk-spam-processing-with-mailman.html</guid>
+        <link>http://autonome.github.io/10-19-2014/bookmarklet-for-bulk-spam-processing-with-mailman.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/10-19-2014/bookmarklet-for-bulk-spam-processing-with-mailman.html</guid>
         
         
       </item>
@@ -196,8 +196,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;p&gt;PS: Do you use Gmail? Do you only use the web interface or Android/iOS apps? Then you probably don&#39;t have a backup of your email. I run an IMAP mail client (Thunderbird) periodically to get an updated offline copy of my Gmail in an open format.&lt;/p&gt;
 </description>
         <pubDate>Tue, 06 May 2014 21:32:05 -0700</pubDate>
-        <link>http://autonome.github.io/2014/05/06/baby-steps-to-owning-your-data.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/2014/05/06/baby-steps-to-owning-your-data.html</guid>
+        <link>http://autonome.github.io/05-06-2014/baby-steps-to-owning-your-data.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/05-06-2014/baby-steps-to-owning-your-data.html</guid>
         
         <category>indieweb</category>
         
@@ -222,8 +222,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;p&gt;1. Mozilla has ~1000 employees. According to Wikipedia, Google has ~50,000 employees, Apple ~80,000 and Microsoft ~100,000.&lt;/p&gt;
 </description>
         <pubDate>Thu, 17 Apr 2014 10:10:11 -0700</pubDate>
-        <link>http://autonome.github.io/firefox%20os/mozilla/2014/04/17/firefox-os-and-academic-programs.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/firefox%20os/mozilla/2014/04/17/firefox-os-and-academic-programs.html</guid>
+        <link>http://autonome.github.io/04-17-2014/firefox-os-and-academic-programs.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/04-17-2014/firefox-os-and-academic-programs.html</guid>
         
         
         <category>firefox os</category>
@@ -268,8 +268,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 21 Feb 2013 15:29:56 -0800</pubDate>
-        <link>http://autonome.github.io/2013/02/21/installing-ubuntu-phone-demo-on-galaxy-nexus-from-mac-os-x.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/2013/02/21/installing-ubuntu-phone-demo-on-galaxy-nexus-from-mac-os-x.html</guid>
+        <link>http://autonome.github.io/02-21-2013/installing-ubuntu-phone-demo-on-galaxy-nexus-from-mac-os-x.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/02-21-2013/installing-ubuntu-phone-demo-on-galaxy-nexus-from-mac-os-x.html</guid>
         
         
       </item>
@@ -311,8 +311,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 15 Jan 2013 07:58:28 -0800</pubDate>
-        <link>http://autonome.github.io/firefox/firefox%20os/mozilla/2013/01/15/firefox-os-devices-and-dark-matter.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/firefox/firefox%20os/mozilla/2013/01/15/firefox-os-devices-and-dark-matter.html</guid>
+        <link>http://autonome.github.io/01-15-2013/firefox-os-devices-and-dark-matter.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/01-15-2013/firefox-os-devices-and-dark-matter.html</guid>
         
         <category>Boot2Gecko</category>
         
@@ -342,8 +342,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;p&gt;&lt;a href=&quot;http://www.mozilla.org/en-US/firefox/new/&quot;&gt;Download Firefox 11&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 14 Mar 2012 08:07:07 -0700</pubDate>
-        <link>http://autonome.github.io/firefox/mozilla/2012/03/14/firefox-11-is-smaller-and-faster.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/firefox/mozilla/2012/03/14/firefox-11-is-smaller-and-faster.html</guid>
+        <link>http://autonome.github.io/03-14-2012/firefox-11-is-smaller-and-faster.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/03-14-2012/firefox-11-is-smaller-and-faster.html</guid>
         
         <category>firefox</category>
         
@@ -426,8 +426,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 02 Mar 2012 17:33:43 -0800</pubDate>
-        <link>http://autonome.github.io/firefox/mozilla/2012/03/02/browser-services-update-tgif.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/firefox/mozilla/2012/03/02/browser-services-update-tgif.html</guid>
+        <link>http://autonome.github.io/03-02-2012/browser-services-update-tgif.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/03-02-2012/browser-services-update-tgif.html</guid>
         
         <category>firefox</category>
         
@@ -456,8 +456,8 @@ javascript:function%20qsa(e){return[].slice.call(document.querySelectorAll(e))}q
 &lt;p&gt;Overall, it&#39;s been a fun and productive week, if a bit chilly. Like, really chilly. Ridiculously so. Why do people even inhabit places that get this cold? Honestly, wtf.&lt;/p&gt;
 </description>
         <pubDate>Fri, 03 Feb 2012 05:17:47 -0800</pubDate>
-        <link>http://autonome.github.io/firefox/mozilla/2012/02/03/brussels-warm-hospitality-amidst-inhuman-conditions.html</link>
-        <guid isPermaLink="true">http://autonome.github.io/firefox/mozilla/2012/02/03/brussels-warm-hospitality-amidst-inhuman-conditions.html</guid>
+        <link>http://autonome.github.io/02-03-2012/brussels-warm-hospitality-amidst-inhuman-conditions.html</link>
+        <guid isPermaLink="true">http://autonome.github.io/02-03-2012/brussels-warm-hospitality-amidst-inhuman-conditions.html</guid>
         
         <category>belgium</category>
         
